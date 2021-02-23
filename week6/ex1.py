@@ -1,6 +1,10 @@
 import psycopg2
 import time
 
+
+"""Run this file to see the time performance of queries and my summary
+"""
+
 con = psycopg2.connect(database="customers", user="postgres",
                        password="12345", host="127.0.0.1", port="5432")
 
