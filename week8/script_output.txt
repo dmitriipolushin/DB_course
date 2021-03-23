@@ -1,0 +1,75 @@
+--------
+ task1 part1
+ --------
+
+(2, 'Vlad', 1000)
+(1, 'Dima', 500)
+(3, 'Anton', 1500)
+
+
+(3, 'Anton', 1500)
+(2, 'Vlad', 300)
+(1, 'Dima', 1200)
+
+
+(1, 'Dima', 1200)
+(2, 'Vlad', 200)
+(3, 'Anton', 1600)
+
+
+(1, 'Dima', 1000)
+(2, 'Vlad', 1000)
+(3, 'Anton', 1000)
+--------
+ task1 part2
+ --------
+
+(4, 'Tinkoff', 1000, 'Tinkoff')
+(5, 'SberBank', 1000, 'SberBank')
+(2, 'Vlad', 1000, 'Tinkoff')
+(1, 'Dima', 1000, 'SberBank')
+(3, 'Anton', 1000, 'SberBank')
+
+
+(4, 'Tinkoff', 1000, 'Tinkoff')
+(5, 'SberBank', 1000, 'SberBank')
+(2, 'Vlad', 1000, 'Tinkoff')
+(1, 'Dima', 500, 'SberBank')
+(3, 'Anton', 1500, 'SberBank')
+
+
+(5, 'SberBank', 1000, 'SberBank')
+(3, 'Anton', 1500, 'SberBank')
+(2, 'Vlad', 270, 'Tinkoff')
+(4, 'Tinkoff', 1030, 'Tinkoff')
+(1, 'Dima', 1200, 'SberBank')
+
+
+(5, 'SberBank', 1000, 'SberBank')
+(1, 'Dima', 1200, 'SberBank')
+(2, 'Vlad', 140, 'Tinkoff')
+(4, 'Tinkoff', 1060, 'Tinkoff')
+(3, 'Anton', 1600, 'SberBank')
+
+
+(4, 'Tinkoff', 1000, 'Tinkoff')
+(5, 'SberBank', 1000, 'SberBank')
+(2, 'Vlad', 1000, 'Tinkoff')
+(1, 'Dima', 1000, 'SberBank')
+(3, 'Anton', 1000, 'SberBank')
+--------
+ task2
+ --------
+
+
+for task 1.1
+
+(1, 1, 3, 0, '500')
+(2, 2, 1, 0, '700')
+(3, 2, 3, 0, '100')
+
+for task 1.2
+
+(4, 1, 3, 30, '500')
+(5, 2, 1, 30, '700')
+(6, 2, 3, 30, '100')
