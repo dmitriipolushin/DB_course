@@ -1,0 +1,61 @@
+1) Indexing using B-tree:
+
+    1.1 Index created on table payment with columns amount and rental_id. 
+        These columns are integers and the amount column values are compared using the 'less that' sign.
+        We index payments in the binary tree and sort them by rental_id.
+
+        1.1.1 Code: CREATE INDEX btree_payments_indx ON payment (amount, rental_id);
+        1.1.2 Non-optimized cost: cost=510.99..12062691.37
+              Cost after applying index: cost=510.99..10237789.98 
+              Improvement: 15%
+    
+    1.2 Index created on table rental with columns last_update and rental_id. 
+        last_update column contains timestamps that compared using 'less that' sign.
+        We index rentals in the binary tree and sort them by rental_id.
+
+        1.2.1 Code: CREATE INDEX btree_rental_indx ON rental (last_update, rental_id);
+        1.2.2 Non-optimized cost: cost=534.78..2284549.49
+              Cost after applying index: cost=535.06..1557127.59 
+              Improvement: 32%
+    
+    1.3 Index created on table film with columns length, rental_duration.
+        These columns are integers and compared using the 'greater that' sign.
+        We index films by length and sort them by rental_duration.
+
+        1.3.1 Code: CREATE INDEX btree_film_indx ON film (length, rental_duration);
+        1.3.2 Non-optimized cost: cost=7747.19..7747.20
+              Cost after applying index: cost=7660.41..7660.42 
+              Improvement: 1%
+
+2) Indexing using Hash index:
+
+    2.1 Index created on table payment with column rental_id because it is a foreign key to search exact entry.
+
+        2.1.1 Code: CREATE INDEX hash_payment_indx ON payment USING hash(rental_id);
+        2.1.2 Non-optimized cost: cost=510.99..12062691.37
+              Cost after applying index: cost=510.99..12062691.37 
+              Improvement: 0%
+        
+    2.2 Index created on table rental with column customer_id, because it is a foreign key to search exact entry.
+
+        2.2.1 Code: CREATE INDEX hash_rental_indx ON rental USING hash(customer_id);
+        2.2.2 Non-optimized cost: cost=534.78..2284549.49
+              Cost after applying index: cost=534.78..2284549.49 
+              Improvement: 0%
+
+    
+    2.3 Hash index will not make any changes in the third query because it only works on searches and exact comparisons, that the third query does not contain.
+
+3) SP-GiST index:
+
+    3.1 SP-GiST index can not be applied on the first query because we have unpartitionable integer values.
+
+    3.2 SP-GiST index can not be applied on the second query because we have unpartitionable integer values.
+
+    3.3 Index created on table address with column phone because it is the only column for which we can apply tokenization.
+        The type of column is string.
+
+        3.3.1 Code: CREATE INDEX spgist_address_indx ON address using spgist(phone);
+        3.3.2 Non-optimized cost: cost=7747.19..7747.20
+              Cost after applying index: cost=7747.19..7747.20
+              Improvement: 0%
